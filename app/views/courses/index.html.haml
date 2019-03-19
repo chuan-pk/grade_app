@@ -1,0 +1,16 @@
+%h1 All Courses
+
+%table#courses 
+  %thead 
+    %tr
+      %th course id
+      %th course name
+      %th credit
+      %th more info
+  %tbody
+    -@courses.each do |course|
+      %tr
+        %td #{course.course_id}
+        %td #{course.name}
+        %td #{course.credit}
+        %td more info about #{course.course_id}
