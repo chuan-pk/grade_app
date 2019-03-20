@@ -11,7 +11,8 @@ courses = [
   {course_id: "010123121", name: "DATABASE SYSTEMS", credit: 3},
   {course_id: "010123128", name: "COMPUTER NETWORKS LABORATORY", credit: 1},
   {course_id: "010123211", name: "SIMULATION AND MODELING", credit: 3},
-  {course_id: "010123213", name: "ARTIFICIAL INTELLIGENCE", credit: 3}
+  {course_id: "010123213", name: "ARTIFICIAL INTELLIGENCE", credit: 3},
+  {course_id: "01012610091", name: "MY DUMMY COURSE", credit: 3, detail: "This is DUMMY COURSE's Details"},
 ]
 
 courses.each do |course|

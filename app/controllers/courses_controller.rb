@@ -18,6 +18,11 @@ class CoursesController < ApplicationController
     end
   end
 
+  def show
+    course_id = params[:id]
+    @course = Course.find(course_id)
+  end
+
 
   private
   def allowed_params

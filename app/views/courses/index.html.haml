@@ -13,4 +13,4 @@
         %td #{course.course_id}
         %td #{course.name}
         %td #{course.credit}
-        %td more info about #{course.course_id}
+        %td= link_to("more info about #{course.course_id}", course_path(course))
