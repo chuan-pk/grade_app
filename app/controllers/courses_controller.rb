@@ -10,11 +10,26 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(allowed_params)
     if @course.save
-      flash[:notice] = '#{course.name} was successfully created'
+      flash[:notice] = "#{@course.name} was successfully created"
       redirect_to courses_path
     else
       flash[:warning] = 'something wrong'
       redirect_to courses_path
+    end
+  end
+
+  def edit
+      @course = Course.find(params[:id])
+  end
+
+  def update
+    @course = Course.find(params[:id])
+    if @course.update_attributes(allowed_params)
+        flash[:notice] = "#{@course.name} was successfully updated."
+        redirect_to course_path(@course)
+    else
+      flash[:warning] = 'something wrong'
+      redirect_to course_path
     end
   end
 
@@ -23,6 +38,7 @@ class CoursesController < ApplicationController
     @course = Course.find(course_id)
   end
 
+ 
 
   private
   def allowed_params

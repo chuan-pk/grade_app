@@ -1,0 +1,6 @@
+%h2 Edit Course
+
+= form_tag course_path, :method => :put do
+  = render(:partial => "course_form" )
+  = submit_tag('Save Change')
+  = link_to('Cancel', course_path)
