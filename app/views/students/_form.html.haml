@@ -7,7 +7,7 @@
           %li= message
 
   .field
-    = f.label :student_id
+    = f.label :id
     = f.text_field :student_id
   .field
     = f.label :name
@@ -20,9 +20,9 @@
     = f.text_field :password
   .field
     = f.label :birthdate
-    = f.text_field :birthdate
+    = f.date_select :birthdate, {start_year: 1930, end_year: Date.today.year}
   .field
     = f.label :sex
-    = f.text_field :sex
+    = f.select(:sex, ['Male', 'Female'])
   .actions
     = f.submit 'Save'
