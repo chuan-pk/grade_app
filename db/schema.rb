@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_140504) do
+ActiveRecord::Schema.define(version: 2019_04_01_164334) do
 
   create_table "courses", id: false, force: :cascade do |t|
     t.string "course_id", null: false
     t.string "name"
     t.text "detail"
     t.integer "credit"
+  end
+
+  create_table "students", id: false, force: :cascade do |t|
+    t.string "student_id"
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "birthdate"
+    t.string "sex"
+    t.index ["email"], name: "index_students_on_email", unique: true
+    t.index ["student_id"], name: "index_students_on_student_id", unique: true
   end
 
 end

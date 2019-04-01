@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Student:
+  = @student.student_id
+%p
+  %b Name:
+  = @student.name
+%p
+  %b Email:
+  = @student.email
+%p
+  %b Password:
+  = @student.password
+%p
+  %b Birthdate:
+  = @student.birthdate
+%p
+  %b Sex:
+  = @student.sex
+
+= link_to 'Edit', edit_student_path(@student)
+\|
+= link_to 'Back', students_path
