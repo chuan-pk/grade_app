@@ -22,9 +22,13 @@ class AttemptsController < ApplicationController
     @student = @current_user
     @course = Course.find(params[:course_id])
     @attempt = Attempt.new(allowed_params)
-    @attempt.course_id = @course.id
-    @attempt.student_id = @student.id
+    @attempt.course_id = @course.course_id
+    @attempt.student_id = @student.student_id
     @attempt.save
     redirect_to course_path(@course)
   end
+  private
+    def allowed_params
+      params.require(:attempt).permit(:grade, :year, :semester)
+    end
 end

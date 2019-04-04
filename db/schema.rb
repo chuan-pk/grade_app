@@ -14,14 +14,12 @@ ActiveRecord::Schema.define(version: 2019_04_04_061351) do
 
   create_table "attempts", force: :cascade do |t|
     t.string "grade"
-    t.integer "year"
+    t.datetime "year"
     t.integer "semester"
-    t.integer "student_id"
-    t.integer "course_id"
+    t.string "student_id"
+    t.string "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_attempts_on_course_id"
-    t.index ["student_id"], name: "index_attempts_on_student_id"
   end
 
   create_table "courses", id: false, force: :cascade do |t|
