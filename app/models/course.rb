@@ -1,4 +1,8 @@
 class Course < ActiveRecord::Base
+
+  has_many :attempts
+  has_many :student, :through => :attempts 
+
   self.primary_key = :course_id
   before_save :uppercase_course_name
 
