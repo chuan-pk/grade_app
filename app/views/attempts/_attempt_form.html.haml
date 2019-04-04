@@ -1,0 +1,6 @@
+%label year:
+=select(:attempt, :year, {start_year: 2555, end_year: Date.today.year+543})
+%label semester:
+=select(:attempt, :semester, [1, 2, 3])
+%label grade:
+=select(:attempt, :grade, ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'])
