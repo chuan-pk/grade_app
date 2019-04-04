@@ -22,3 +22,27 @@
 = link_to 'Edit', edit_student_path(@student)
 \|
 = link_to 'Back', students_path
+
+%h1 All Attempt 
+
+%table
+  %thead
+    %tr
+      %th Course id
+      %th Name
+      %th Year
+      %th Semester
+      %th Grade
+      %th
+      %th
+      %th
+
+  %tbody
+    - Attempt.joins(:student).where(student_id: @student.student_id).each do |record|
+      %tr
+        %td= record.course_id
+        %td= record.try(:course).try(:name)
+        %td= record.year
+        %td= record.semester
+        %td= record.grade
+

@@ -1,6 +1,7 @@
 class AttemptsController < ApplicationController
   before_action :has_student_and_course,  only: [:new, :create]
-
+ 
+  
   protected
   def has_student_and_course
     unless @current_user
@@ -27,8 +28,10 @@ class AttemptsController < ApplicationController
     @attempt.save
     redirect_to course_path(@course)
   end
+
   private
     def allowed_params
       params.require(:attempt).permit(:grade, :year, :semester)
     end
+
 end

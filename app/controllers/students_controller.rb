@@ -15,6 +15,12 @@ class StudentsController < ApplicationController
     @current_user ||= Student.find_by(student_id: session[:user_id])
     id = params[:id]
     @student = Student.find(id)
+    
+    @attempt = Attempt.where(student_id: @student.student_id)
+    '''Attempt.joins(:student).where(student_id: @student.student_id).each do |record|
+      puts "-----"
+      puts record.course_id, record.grade
+    end'''
   end
 
   # GET /students/new
