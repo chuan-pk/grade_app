@@ -1,5 +1,5 @@
 %label year:
-=select(:attempt, :year, {start_year: 2555, end_year: Date.today.year+543})
+=date_select(:attempt, :year, {start_year: 2014, end_year: Date.today.year, discard_day: true, discard_month: true})
 %label semester:
 =select(:attempt, :semester, [1, 2, 3])
 %label grade:
