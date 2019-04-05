@@ -39,8 +39,7 @@
       %tr
         %td= link_to(" #{record.course_id}", course_path(record.course_id))
         %td= record.try(:course).try(:name)
-        -# show only year
-        %td= record.year.year   
+        %td= record.year
         %td= record.semester
         %td= record.grade
 

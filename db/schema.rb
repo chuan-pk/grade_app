@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_061351) do
 
   create_table "attempts", force: :cascade do |t|
     t.string "grade"
-    t.datetime "year"
+    t.integer "year"
     t.integer "semester"
     t.string "student_id"
     t.string "course_id"
