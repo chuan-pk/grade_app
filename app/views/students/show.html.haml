@@ -37,9 +37,10 @@
   %tbody
     - Attempt.joins(:student).where(student_id: @student.student_id).each do |record|
       %tr
-        %td= record.course_id
+        %td= link_to(" #{record.course_id}", course_path(record.course_id))
         %td= record.try(:course).try(:name)
-        %td= record.year
+        -# show only year
+        %td= record.year.year   
         %td= record.semester
         %td= record.grade
 

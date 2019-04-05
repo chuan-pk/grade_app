@@ -36,6 +36,7 @@ class CoursesController < ApplicationController
   def show
     course_id = params[:id]
     @course = Course.find(course_id)
+    @attempts = Attempt.where(course_id: @course.course_id)
   end
 
   def destroy

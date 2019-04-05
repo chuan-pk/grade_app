@@ -13,6 +13,9 @@ gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-ge
 gem 'haml'
 gem 'haml-rails'
 
+# Use Chartkick to create beautiful chart
+gem "chartkick"
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

@@ -9,11 +9,9 @@
       %th course id
       %th course name
       %th credit
-      %th more info
   %tbody
     -@courses.each do |course|
       %tr
-        %td #{course.course_id}
+        %td= link_to(" #{course.course_id}", course_path(course))
         %td #{course.name}
         %td #{course.credit}
-        %td= link_to("more info about #{course.course_id}", course_path(course))

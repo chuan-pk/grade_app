@@ -9,6 +9,17 @@
 %h3 detail:
 #{@course.detail}
 
+%h3 grade history:
+=column_chart([ |
+  ['F', @attempts.where(grade: 'F').count], |
+  ['D', @attempts.where(grade: 'D').count], |
+  ['D+', @attempts.where(grade: 'D+').count], |
+  ['C', @attempts.where(grade: 'C').count], |
+  ['C+', @attempts.where(grade: 'C+').count], |
+  ['B', @attempts.where(grade: 'B').count], |
+  ['B+', @attempts.where(grade: 'B+').count], |
+  ['A', @attempts.where(grade: 'A').count], |
+  ], width: "800px", height: "350px")
 %h5
 = link_to("Edit info", edit_course_path(@course))
 %h5
