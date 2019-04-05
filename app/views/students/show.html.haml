@@ -10,11 +10,8 @@
   %b Email:
   = @student.email
 %p
-  %b Password:
-  = @student.password
-%p
   %b Birthdate:
-  = @student.birthdate
+  = @student.birthdate.to_date
 %p
   %b Sex:
   = @student.sex

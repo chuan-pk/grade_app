@@ -9,11 +9,16 @@
 
 require 'csv'
 
-file = "./db/courses.csv"
-
-courses = CSV.open(file, headers: :first_row).map(&:to_h)
-
+course_file = "./db/courses.csv"
+courses = CSV.open(course_file, headers: :first_row).map(&:to_h)
 courses.each do |course|
   Course.create!(course)
   puts "create course: #{course}" 
+end
+
+student_file = "./db/students.csv"
+students = CSV.open(student_file, headers: :first_row).map(&:to_h)
+students.each do |student|
+  Student.create!(student)
+  puts "create student: #{student}" 
 end
