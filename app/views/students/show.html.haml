@@ -28,6 +28,9 @@
 - Attempt.where(student_id: @student.student_id).group_by(&:year).each do |year, year_records|
   - year_records.group_by(&:semester).each do |semester, records|
     %h3 #{year}/#{semester}: 
+    %h3
+      GPA:
+      = @student.gpa["#{year}/#{semester}"]
     %table
       %thead
         %tr
