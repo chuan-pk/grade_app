@@ -30,7 +30,7 @@ class Student < ApplicationRecord
           sum_credit += Course.find(a.course_id).credit
           sum_product += Course.find(a.course_id).credit * @@letter_grade[a.grade]
         end
-        gaps.merge!("#{year}/#{semester}"=> (sum_product/sum_credit).floor(2)) 
+        gpa.merge!("#{semester}/#{year}"=> (sum_product/sum_credit).floor(2))
       end
     end
     gpa
