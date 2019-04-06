@@ -22,15 +22,15 @@
 = link_to 'Edit', edit_student_path(@student)
 \|
 = link_to 'Back', students_path
-
 %h1 All Attempt 
-=line_chart(@student.gpa, width: "800px", height: "350px", curve: false, library: {y_ticks: (1..4)}) 
+=line_chart(@student.gpa, width: "800px", height: "350px", curve: false,
+library: {scales: {yAxes: [{ticks: {stepSize: 1, suggestedMin: false}}]}})
 - Attempt.where(student_id: @student.student_id).group_by(&:year).each do |year, year_records|
   - year_records.group_by(&:semester).each do |semester, records|
     %h3 #{semester}/#{year}: 
     %h3
       GPA:
-      = @student.gpa["#{semester}/#{year}"]
+      = @gpa["#{semester}/#{year}"]
     %table
       %thead
         %tr

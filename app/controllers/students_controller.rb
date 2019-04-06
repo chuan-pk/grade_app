@@ -21,6 +21,7 @@ class StudentsController < ApplicationController
       puts "-----"
       puts record.course_id, record.grade
     end'''
+    @gpa = @current_user.gpa
   end
 
   # GET /students/new
