@@ -22,24 +22,19 @@
 
 %h1 All Attempt 
 
-%table
-  %thead
-    %tr
-      %th Course id
-      %th Name
-      %th Year
-      %th Semester
-      %th Grade
-      %th
-      %th
-      %th
-
-  %tbody
-    - Attempt.joins(:student).where(student_id: @student.student_id).each do |record|
-      %tr
-        %td= link_to(" #{record.course_id}", course_path(record.course_id))
-        %td= record.try(:course).try(:name)
-        %td= record.year
-        %td= record.semester
-        %td= record.grade
-
+- Attempt.where(student_id: @student.student_id).group_by(&:year).each do |year, year_records|
+  - year_records.group_by(&:semester).each do |semester, records|
+    %h3 #{year}/#{semester}: 
+    %table
+      %thead
+        %tr
+          %th Course id
+          %th Course Name
+          %th Grade
+      %tbody
+        - records.each do |record|
+          %tr
+            %td= link_to(" #{record.course_id}", course_path(record.course_id))
+            %td= record.try(:course).try(:name)
+            %td= record.grade
+    %br
