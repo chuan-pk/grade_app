@@ -1,0 +1,14 @@
+%h1 Attempt Courses
+= form_tag attempt_courses_path do
+  %label year:
+  =select(:course, :year, (2014..Date.today.year))
+  %label semester:
+  =select(:course, :semester, [1, 2, 3])
+  - @courses.each do |course|
+    = fields_for 'courses[]', course, {} do |c|
+      = c.label :course
+      = c.text_field :course_id
+      = c.select :grade, ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F']
+  %br
+  %br    
+  = submit_tag 'Submit'

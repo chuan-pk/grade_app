@@ -29,9 +29,33 @@ class AttemptsController < ApplicationController
     redirect_to course_path(@course)
   end
 
-  private
-    def allowed_params
-      params.require(:attempt).permit(:grade, :year, :semester)
+  def attempt_courses
+    @courses = []
+    7.times do
+      @courses << Attempt.new
     end
+  end
+
+  def confirm
+    @student = @current_user
+    @year = params[:course][:year]
+    @semester = params[:course][:semester]
+    params["courses"].each do |course|
+      @attempt = Attempt.new(attempt_params(course))
+      @attempt.student_id = @student.student_id
+      @attempt.year = @year
+      @attempt.semester = @semester
+      @attempt.save
+    end
+    redirect_to courses_path
+  end
+  
+  private
+  def allowed_params
+    params.require(:attempt).permit(:grade, :year, :semester,)
+  end
+  def attempt_params(my_params)
+    my_params.permit(:grade, :course_id)
+  end
 
 end
