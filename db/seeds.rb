@@ -23,9 +23,12 @@ students.each do |student|
   puts "create student: #{student}" 
 end
 
-s12345_attempts_file = "./db/s12345_attempts.csv"
-attempts = CSV.open(s12345_attempts_file, headers: :first_row).map(&:to_h)
-attempts.each do |attempt|
-  Attempt.create!(attempt.merge!(student_id: 5901012612345))
-  puts "attempt: #{attempt}" 
+students = (12345..12348)
+students.each do |student|
+  attempts_file = "./db/s#{student}_attempts.csv"
+  attempts = CSV.open(attempts_file, headers: :first_row).map(&:to_h)
+  attempts.each do |attempt|
+    Attempt.create!(attempt.merge!(student_id: "59010126#{student}"))
+    puts "#{student} attempt: #{attempt}" 
+  end
 end

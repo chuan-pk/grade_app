@@ -1,2 +1,5 @@
 student_id,name,email,password,birthdate,sex
 5901012612345,student12345,s12345@email.com,12345,16/Jul/1997,Male
+5901012612346,student12346,s12346@email.com,12346,12/Mar/1946,Male
+5901012612347,student12347,s12347@email.com,12347,12/Mar/1947,Male
+5901012612348,student12347,s12348@email.com,12348,12/Mar/1948,Male
