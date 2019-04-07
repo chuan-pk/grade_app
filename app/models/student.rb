@@ -18,6 +18,8 @@ class Student < ApplicationRecord
       sum_product += @@letter_grade[a.grade] * a.course.credit
     end
     return (sum_product/sum_credit).floor(2)
+    rescue ZeroDivisionError
+    return 0
   end
 
   def gpa 
