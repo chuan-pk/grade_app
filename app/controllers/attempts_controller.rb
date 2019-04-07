@@ -17,7 +17,7 @@ class AttemptsController < ApplicationController
   public
   def new
     @course = Course.find(params[:course_id])
-    @attempt = @course.attempts.new
+    # @attempt = @course.attempts.new
   end
   def create
     @student = @current_user
@@ -25,8 +25,13 @@ class AttemptsController < ApplicationController
     @attempt = Attempt.new(allowed_params)
     @attempt.course_id = @course.course_id
     @attempt.student_id = @student.student_id
-    @attempt.save
-    redirect_to course_path(@course)
+    if @attempt.save
+      flash[:notice] = "Attempt #{@course.course_id}: #{@course.name} success."
+      redirect_to course_path(@course)
+    else
+      flash[:warning] = @attempt.errors
+      redirect_to course_path(@course)
+    end
   end
 
   def attempt_courses
