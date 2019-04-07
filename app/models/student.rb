@@ -24,7 +24,7 @@ class Student < ApplicationRecord
 
   def gpa 
     gpa = {}
-    Attempt.where(student_id: self.student_id).group_by(&:year).each do |year, year_attempt|
+    Attempt.where(student_id: self.student_id).order(:year, :semester).group_by(&:year).each do |year, year_attempt|
       year_attempt.group_by(&:semester).each do |semester, semester_attempt|
         sum_credit = 0
         sum_product = 0
