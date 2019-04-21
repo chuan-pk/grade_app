@@ -6,6 +6,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.text 'detail'
       t.integer 'credit'
     end
+    add_index :courses, :course_id, unique: true
   end
   
   def down

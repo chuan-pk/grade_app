@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_061351) do
     t.string "name"
     t.text "detail"
     t.integer "credit"
+    t.index ["course_id"], name: "index_courses_on_course_id", unique: true
   end
 
   create_table "students", id: false, force: :cascade do |t|
